@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="RawlFarm.css" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    
+    <!-- <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script> -->
+    <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <!-- <script src="plotly.min.js"></script> -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="map.css"> -->
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="topbar">
+        <div class="toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+
+        <!-- <div class="search">
+          <label>
+            <input type="text" placeholder="W.P. Rawl Farm, Bunnell, FL" />
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
+        </div> -->
+
+        <div class="user">
+          <!-- <img src="./ADFlogo.png" alt="" /> -->
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="material-icons">
+                <ion-icon name="home-outline"></ion-icon>
+              </span>
+              <span class="title">W.P. Rawl Farm</span>
+            </a>
+          </li>
+          <li>
+            <a href="home.html">
+              <span class="material-icons">
+                <ion-icon name="laptop-outline"></ion-icon>
+              </span>
+              <span class="title">Home Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="RawlFarm.html">
+              <span class="material-icons">
+                <ion-icon name="server-outline"></ion-icon>
+              </span>
+              <span class="title">Digi-farm Database</span>
+            </a>
+          </li>
+          <li>
+            <a href="AgroInformatics.html">
+              <span class="material-icons">
+                <ion-icon name="bar-chart-outline"></ion-icon>
+              </span>
+              <span class="title">Agro-Informatics</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="http://localhost/DigifarmV2/mapHome.php">
+              <span class="material-icons">
+                <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+              </span>
+              <span class="title">Orchard Lots</span>
+            </a>
+          </li> -->
+          
+          <li>
+            <a href="accountSettings.html">
+              <span class="material-icons">
+                <ion-icon name="settings-outline"></ion-icon>
+              </span>
+              <span class="title">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="material-icons">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span>
+              <span class="title">Sign Out</span>
+              <button class="logout" onclick="logout()"></button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="dashboard">
+      <!-- <h1>Demographic Agricultural Database</h1> -->
+      <h5 style="text-align: right;">Date: December 18th, 2023</h5>
+      <div class="mapBox">
+        <!-- OPENMAP GL LOADING -->
+
+        <div class="ECmap">
+          <h2 style="font-weight: 400; text-align: center;">Electrical Conductivity Map(dS/m)</h2>
+          <div id="ECmap"></div>
+        </div>
+
+        <div class="map">
+           
+          <h2 style="font-weight: 400; text-align: center;">Normalized Difference Vegetation Index (NDVI) comparison</h2>
+          <div id="map-menu"></div> 
+          <div id="map"></div>
+        </div>
+
+        <div class="linePlot">
+          <!-- <div id="EClinePlot" class="EC-surf-plot"></div> -->
+          <div id="myDiv" class="EC-contour-plot">
+            <!-- <h2>EC Contour Plots on FL-120 (dS/m)</h2> -->
+          </div>
+        </div>
+
+        <div class="surfPlot">
+          <!-- <div id="ECsurfPlot" class="EC-surf-plot"></div> -->
+          
+          <div id="Tcontour" class="EC-contour-plot">
+            <!-- <h2>Soil Temperature Contour Plots on FL-120 (&#176; F)</h2> -->
+          </div>
+          <!-- <canvas id="ECchart"></canvas> -->
+        </div>
+        
+      </div>
+
+      
+      <!-- <div class="weatherBox">
+
+        <div class="box">
+            <div class="Dial">
+                <div class="Humidity-dial">
+                    <h4 class="WS_label">Humidity (%)</h4>
+                    <div class="humidity-circular-progress">
+                        
+                        <h1 class="WS_value"><span class="humidity-progress-value" id="humidity">90</span><sup>%</sup></h1>
+                        <iconify-icon icon="openmoji:cloud"></iconify-icon>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="box">
+          <div class="WS">
+            <div class="WS_1">
+              <div>
+                <h1 class="WS_value">
+                  <span id="surfacetemp"></span>&deg;F
+                </h1>
+                <h4 class="WS_label">Soil Temperature</h4>
+              </div>
+              <div class="iconBx">
+                <ion-icon name="thermometer-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="WS_1">
+              <div>
+                <h1 class="WS_value"><span id="windspeed"></span>mph</h1>
+                <h4 class="WS_label">Wind Speed</h4>
+              </div>
+              <div class="iconBx">
+                <ion-icon name="speedometer-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="WS_1">
+              <div>
+                <h1 class="WS_value"><span id="cloud"></span></h1>
+                <h4 class="WS_label">Cloud</h4>
+              </div>
+
+              <div class="iconBx">
+                <ion-icon name="water-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="WS_1">
+              <div>
+                <h1 class="WS_value"><span id="belowsurfacetemp"></span>&deg;F</h1>
+                <h4 class="WS_label">Soil Temperature (10" below the surface)</h4>
+              </div>
+              <div class="iconBx">
+                <ion-icon name="sunny-outline"></ion-icon>
+              </div>
+            </div>
+            <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="windgust"></span></h1>
+                  <h4 class="WS_label">Wind Gust</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="dewPoint"></span></h1>
+                  <h4 class="WS_label">Dew Point</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="soilmoisture"></span></h1>
+                  <h4 class="WS_label">Soil Moisture</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="winddeg"></span>&deg;</h1>
+                  <h4 class="WS_label">Wind Direction</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id=""></span>0.14</h1>
+                  <h4 class="WS_label">Soil EC</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="uvindex"></span></h1>
+                  <h4 class="WS_label">UV Index</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="visibility"></span></h1>
+                  <h4 class="WS_label">Visibility</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+              <div class="WS_1">
+                <div>
+                  <h1 class="WS_value"><span id="pressure"></span></h1>
+                  <h4 class="WS_label">Pressure</h4>
+                </div>
+                <div class="iconBx">
+                  <ion-icon name="sunny-outline"></ion-icon>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="box">
+            <div class="Dial">
+                <div class="Cloud-dial">
+                    <h4 class="WS_label">Cloud (%)</h4>
+                    <div class="cloud-circular-progress">
+                        <h1 class="WS_value"><span class="cloud-progress-value" id="clouds"></span><sup>%</sup></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+       -->
+
+      <div class="cardBox">
+        <div class="card">
+          <div class="card-info">
+            <div class="numbers">0.23</div>
+            <div class="cardName">
+              Mean Normalized difference vegetation index (NDVI)
+            </div>
+          </div>
+          <!-- <div class="iconBx">
+            <ion-icon name="bar-chart-outline"></ion-icon>
+          </div> -->
+          <button id="ndvi-btn" type="button" onclick="toggleData(0)"></button>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <div class="numbers">0.437</div>
+            <div class="cardName">Maximum Electrical Conductivity (dS/m)</div>
+          </div>
+          <!-- <div class="iconBx">
+            
+            <ion-icon name="bar-chart-outline"></ion-icon>
+          </div> -->
+          <button id="evi-btn" type="button" onclick="toggleData(1)"></button>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <div class="numbers">0.156</div>
+            <div class="cardName">Mean Electrical Conductivity (dS/m)</div>
+          </div>
+          <!-- <div class="iconBx">
+            <ion-icon name="bar-chart-outline"></ion-icon>
+          </div> -->
+          <button id="dswi-btn" type="button" onclick="toggleData(2)"></button>
+        </div>
+        <div class="card">
+          <div class="card-info">
+            <div class="numbers">0.037</div>
+            <div class="cardName">Minimum Electrical Conductivity (dS/m)</div>
+          </div>
+          <!-- <div class="iconBx">
+            <ion-icon name="bar-chart-outline"></ion-icon>
+          </div> -->
+          <button id="ndwi-btn" type="button" onclick="toggleData(3)"></button>
+        </div>
+      </div>
+
+      <!-- <div class="graphBox">
+        <div class="box">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="box">
+          <canvas id="forecast"></canvas>
+        </div>
+      </div> -->
+
+      <!-- <div class="graphBox">
+        <div class="box">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="box">
+          <canvas id="forecast"></canvas>
+        </div>
+      </div> -->
+
+      <!-- <div class="card">
+        <h2>Normalized difference vegetation index (NDVI) for 2019-22</h2>
+        <div class="ndvi-chart">
+          <canvas id="mixedChart" width="1000px" height="250px"></canvas>
+        </div>
+      </div> -->
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="firebase.js"></script>
+
+    <script src="home.js"></script>
+    <script src="barHome.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl-rain-layer@latest/dist/mapbox-gl-rain-layer.min.js"></script>
+
+    <!-- <script src="myChart.js"></script> -->
+    <!-- <script src="ndviMeanChart.js"></script> -->
+    <script type="module" src="agro.js"></script>
+    <!-- <script type="module" src="EC_heatmap.js"></script> -->
+    <script type="module" src="AI_map.js"></script>
+    <script src="agro_rawl.js"></script>
+    <script type="module" src="EC_SurfPlotData.js"></script>
+    <script type="module" src="EC_LinePlotData.js"></script>
+    <script type="module" src="EC_contour.js"></script>
+    <script type="module" src="T_contour.js"></script>
+    <script src="EC_pieChart.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    
+
+    
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- <script src="DialGauge.js"></script> -->
+
+    <!-- ========= ionicon =========== -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
