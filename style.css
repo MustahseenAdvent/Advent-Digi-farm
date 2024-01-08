@@ -1137,11 +1137,11 @@ section:nth-child(odd) .animate.scroll {
     }
 }
 
-@media (max-width: 1200px){
+/* @media (max-width: 1200px){
     html{
         font-size: 65%;
     }
-}
+} */
 
 @media (max-width: 991px){
     html{
