@@ -63,9 +63,9 @@ signUpUsername.addEventListener("input", checkSignUpButton);
 
 function checkSignInButton() {
   if (signInPassword.value.length >= 6 && signInEmail.value != "") {
-    signInButton.style.backgroundColor = "#162938";
-  } else {
     signInButton.style.backgroundColor = "#bcdffc";
+  } else {
+    signInButton.style.backgroundColor = "#162938";
   }
 }
 
@@ -140,28 +140,28 @@ auth.onAuthStateChanged((user) => {
 }});
 
 // Sign up Button Press
-signUpButton.addEventListener("click", function () {
-  console.log(signUpUsername.value);
-  console.log(signUpEmail.value);
-  console.log(signUpPassword.value);
-  signUpButton.innerText = "Loading...";
-  auth
-    .createUserWithEmailAndPassword(signUpEmail.value, signUpPassword.value)
-    .then((userCredential) => {
-      signUpButton.innerText = "Sign Up";
-      // var user = userCredential.user;
-      var currentUser = auth.currentUser;
-      alert("User Created!");
-      currentUser.updateProfile({
-        displayName: signUpUsername.value,
-      });
-      console.log(user);
-    })
-    .catch((e) => {
-      signUpButton.innerText = "Loading...";
-      console.log(e.message);
-    });
-});
+// signUpButton.addEventListener("click", function () {
+//   console.log(signUpUsername.value);
+//   console.log(signUpEmail.value);
+//   console.log(signUpPassword.value);
+//   signUpButton.innerText = "Loading...";
+//   auth
+//     .createUserWithEmailAndPassword(signUpEmail.value, signUpPassword.value)
+//     .then((userCredential) => {
+//       signUpButton.innerText = "Sign Up";
+//       // var user = userCredential.user;
+//       var currentUser = auth.currentUser;
+//       alert("User Created!");
+//       currentUser.updateProfile({
+//         displayName: signUpUsername.value,
+//       });
+//       console.log(user);
+//     })
+//     .catch((e) => {
+//       signUpButton.innerText = "Loading...";
+//       console.log(e.message);
+//     });
+// });
 
 // Sign In Button Press
 signInButton.addEventListener("click", function () {
