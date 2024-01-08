@@ -1385,6 +1385,12 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 
 }
 
+@media screen and (max-width: 1280px) {
+    .card {
+        left: 30%;
+    }
+}
+
 @media screen and (max-width: 1650px) {
     html {
         font-size: 13px;
