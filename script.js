@@ -145,7 +145,7 @@ button.addEventListener("click", () => {
 signInButton.addEventListener("click", function (e) {
   console.log("you clicked login")
   e.preventDefault();
-  // signInButton.innerText = "Loggin in..."
+  signInButton.innerText = "Loggin in..."
   auth
     .signInWithEmailAndPassword(signInEmail.value, signInPassword.value)
     .then((e) => {
@@ -159,7 +159,7 @@ signInButton.addEventListener("click", function (e) {
     .catch((e) => {
       // console.log("e.message");
       console.log("Came to catch");
-      // signInButton.innerText = "Login";
+      signInButton.innerText = "Login";
     });
 });
 
