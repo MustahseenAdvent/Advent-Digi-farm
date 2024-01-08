@@ -1122,6 +1122,21 @@ section:nth-child(odd) .animate.scroll {
 }
 /* BREAKPOINTS */
 
+@media (max-width: 1280px){
+    html{
+        font-size: 65%;
+    }
+
+    .wrapper.active-popup {
+        transform: scale(0.7);
+    }
+
+    .wrapper {
+        margin-top: 5%;
+        margin-left: 55%;
+    }
+}
+
 @media (max-width: 1200px){
     html{
         font-size: 65%;
