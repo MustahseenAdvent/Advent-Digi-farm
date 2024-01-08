@@ -1178,6 +1178,10 @@ ul {
         color: var(--second-bg-color);
     }
 
+    .cardBox {
+        scale: 80%;
+    }
+    
     .cardBox .card {
         height: 7rem;
         margin-top: -25px;
@@ -1194,6 +1198,7 @@ ul {
     
     .mapBox {
         grid-template-columns: 1.25fr 1.45fr 0.3fr;
+        scale: 80%;
     }
     .mapBox h2 {
         font-size: 18px;
@@ -1224,7 +1229,6 @@ ul {
     }
 
 }
-
 /* @media screen and (max-width: 1150px) {
     .dashboard, .WS {
         grid-template-columns: 1fr 1fr;
