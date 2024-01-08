@@ -117,28 +117,6 @@ button.addEventListener("click", () => {
   wrapper.classList.remove("active-popup");
 });
 
-auth.onAuthStateChanged((user) => {
-  wrapper.style.top = "0";
-  signInPassword.value = "";
-  signInEmail.value = "";
-  signUpPassword.value = "";
-  signUpEmail.value = "";
-  console.log("Hi how is you");
-
-  if (user) {
-    console.log("auth change");
-    location.replace("home.html");
-    btnPopup.innerText = "Log Out";
-
-    wrapper.style.display = "none";
-  } 
-  else {
-    console.log("logged-out");
-    btnPopup.innerText = "Login";
-    wrapper.style.display = "block";
-  // }
-}});
-
 // Sign up Button Press
 // signUpButton.addEventListener("click", function () {
 //   console.log(signUpUsername.value);
@@ -164,20 +142,47 @@ auth.onAuthStateChanged((user) => {
 // });
 
 // Sign In Button Press
-signInButton.addEventListener("click", function () {
+signInButton.addEventListener("click", function (e) {
   console.log("you clicked login")
-  signInButton.innerText = "Loggin in..."
+  e.preventDefault();
+  // signInButton.innerText = "Loggin in..."
   auth
     .signInWithEmailAndPassword(signInEmail.value, signInPassword.value)
     .then((e) => {
-      // location.replace("home.html");
+      // console.log("addevent listener")
+      
+      location.replace("home.html");
+      
       // signInButton.innerText = "Login";
-      console.log("addevent listener")
+      
     })
     .catch((e) => {
-      console.log("e.message");
-      signInButton.innerText = "Login";
+      // console.log("e.message");
+      console.log("Came to catch");
+      // signInButton.innerText = "Login";
     });
 });
+
+auth.onAuthStateChanged((user) => {
+  wrapper.style.top = "0";
+  signInPassword.value = "";
+  signInEmail.value = "";
+  signUpPassword.value = "";
+  signUpEmail.value = "";
+  console.log("Hi how is you");
+
+  if (user) {
+    // console.log("auth change");
+    location.replace("home.html");
+    // btnPopup.innerText = "Log Out";
+
+    wrapper.style.display = "none";
+  } 
+  else {
+    console.log("logged-out");
+    // btnPopup.innerText = "Login";
+    wrapper.style.display = "block";
+  // }
+}});
 
 
