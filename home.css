@@ -1282,7 +1282,7 @@ ul {
     text-transform: capitalize;
 }
 
-@media screen and (max-width: 2300px) {
+@media screen and (max-width: 2000px) {
     .current-info, #map, .map-options {
         width: 90%;
     }
@@ -1303,22 +1303,34 @@ ul {
         height: 100%;
     }
     .current-info .weather-container .current-weather-icon {
-        width: 30%;
+        width: 25%;
         margin-bottom: -8%;
         margin-top: -5%;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
-    .date-container .column {
+    .date-container .column{
         margin-top: -25%;
-        scale: 90%;
-        
+        scale: 70%;
+        /* font-size: 1rem; */
+    }
+
+    .date-container .column p {
+        /* margin-top: -25%; */
+        scale: 80%;
+        /* font-size: 1rem; */
+    }
+
+    .temp-container .column p {
+        /* margin-top: -25%; */
+        scale: 80%;
+        /* font-size: 1rem; */
     }
 
     .temp-container .column {
         margin-bottom: -20%;
-        scale: 90%;
+        scale: 70%;
         padding-right: 35px;
     }
     .dashboard .container.active, .navbar .container.active {
@@ -1364,6 +1376,95 @@ ul {
 
 }
 
+
+@media screen and (max-width: 1280px) {
+    .dashboard {
+        grid-template-columns: 1fr 0.1fr;
+    }
+
+    .current-info, #map, .map-options {
+       height: 90%;
+       width: 80%;
+    }
+
+    .home-content h1 {
+        font-size: 2rem;
+        width: 150px;
+    }
+
+    .home-content p {
+        font-size: 0.8rem;
+    }
+
+    .farm-search input {
+        font-size: 12px;
+    }
+
+    .weather-container {
+        height: 100%;
+    }
+    .current-info .weather-container .current-weather-icon {
+        width: 20%;
+        margin-bottom: -8%;
+        margin-top: -5%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .date-container .column {
+        margin-top: -25%;
+        scale: 90%;
+        font-size: 10px;
+    }
+
+    .temp-container .column {
+        margin-bottom: -20%;
+        scale: 90%;
+        padding-right: 35px;
+        font-size: 10px;
+    }
+    .dashboard .container.active, .navbar .container.active {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+
+    .sidebar .container.active {
+        width:70px;
+    }  
+    
+    .sidebar .container.active .title {
+        transition: 0.5s ease;
+        color: var(--second-bg-color);
+    }
+    
+
+}
+
+@media screen and (max-height: 1080px) {
+    
+    .date-container .column {
+        margin-top: -25%;
+        scale: 90%;
+        
+    }
+
+    .temp-container .column {
+        margin-bottom: -20%;
+        scale: 90%;
+        /* padding-right: 15px; */
+        margin-left: 40px;
+    }
+
+    .temp-container .column h2 {
+        margin-left: 2px;
+    }
+
+    .temp-container .column p {
+        margin-left: 2px;
+    }
+
+
+}
 
 @media screen and (max-width: 1280px) {
     .dashboard {
