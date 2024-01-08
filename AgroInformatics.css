@@ -1124,6 +1124,61 @@ ul {
 
 }
 
+@media screen and (max-width: 1280px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .weatherBox {
+        scale: 80%;
+        grid-gap: 0;
+        align-items: center;
+        margin-left: -10%;
+    }
+
+    .weatherBox .Dial {
+        scale: 80%;
+    }
+
+    .weatherBox .box .WS {
+        grid-gap: 10px;
+    }
+
+    .weatherBox .WS_1 {
+        height: 85%;
+    }
+
+    .weatherBox .WS_1 .WS-value span {
+        font-size: 1rem;
+    }
+
+    .weatherBox .WS_1 h4 {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .cardBox {
+        scale: 80%;
+        margin-top: -15%;
+    }
+    .cardBox .card {
+        height: 85%;
+    }
+
+    .cardBox .card .numbers {
+        font-size: 2rem;
+    }
+
+    .cardBox .card .cardName {
+        font-size: 1rem;
+    }
+
+    .cardBox .card .iconBx {
+        font-size: 2.5rem;
+    }
+
+}
+
 /* @media screen and (max-width: 1150px) {
     .dashboard, .WS {
         grid-template-columns: 1fr 1fr;
