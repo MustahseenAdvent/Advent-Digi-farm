@@ -1555,6 +1555,138 @@ ul {
 
 }
 
+@media screen and (max-width: 1280px) {
+    /* .dashboard {
+        grid-template-columns: 0.1fr 1.9fr;
+    } */
+
+    .current-info, #map, .map-options {
+       height: 90%;
+       /* width: 80%; */
+       scale: 60%;
+       left: 10%;
+    }
+
+    .home-content {
+        width: 180%;
+        margin: 50px;
+        margin-top: -25%;
+    }
+
+    .home-content h1 {
+        font-size: 1.5rem;
+        width: 150px;
+    }
+
+    .home-content p {
+        font-size: 0.8rem;
+    }
+
+    .farm-search input {
+        font-size: 12px;
+    }
+
+    .weather-container {
+        /* height: 100%; */
+        margin-right: -19%;
+        margin-left: 19%;
+        
+        /* width: 70%; */
+        /* right: 0; */
+        /* align-items: end; */
+    }
+
+    .temp-container {
+        /* width: 70%; */
+        /* position: relative;
+        margin-left: auto; */
+        left: 19%;
+    }
+
+    .date-container {
+        /* width: 70%; */
+        /* margin-top: 0; */
+        /* margin-bottom: -13%; */
+        height: 280px;
+        left: 19%;
+    }
+
+    .current-info .weather-container .current-weather-icon {
+        width: 25%;
+        margin-bottom: -8%;
+        margin-top: -5%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .date-container .column {
+        margin-top: 50%;
+        scale: 90%;
+        font-size: 10px;
+    }
+
+    .temp-container .column {
+        /* margin-bottom: -10%; */
+        scale: 90%;
+        padding-right: 35px;
+        font-size: 10px;
+        
+    }
+    .dashboard .container.active, .navbar .container.active {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+
+    .sidebar .container.active {
+        width:70px;
+    }  
+    
+    .sidebar .container.active .title {
+        transition: 0.5s ease;
+        color: var(--second-bg-color);
+    }
+
+    #map {
+        /* width: 70%; */
+        /* justify-content: end;
+        text-align: end; */
+        /* right: -20%; */
+    }
+
+    .map-options {
+        right: -15%;
+        scale: 80%;
+    }
+    
+
+}
+
+@media screen and (max-height: 720px) {
+    
+    .date-container .column {
+        margin-top: -25%;
+        scale: 90%;
+        
+    }
+
+    .temp-container .column {
+        margin-bottom: -20%;
+        scale: 90%;
+        /* padding-right: 15px; */
+        margin-left: 40px;
+    }
+
+    .temp-container .column h2 {
+        margin-left: 2px;
+    }
+
+    .temp-container .column p {
+        margin-left: 2px;
+    }
+
+
+}
+
 /* @media screen and (max-width: 1150px) {
     .dashboard, .sales {
         grid-template-columns: 1fr 1fr;
