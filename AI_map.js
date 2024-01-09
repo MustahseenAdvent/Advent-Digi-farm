@@ -472,7 +472,9 @@ map.on('idle', () => {
   }
 
   // Enumerate ids of the layers.
-  const toggleableLayerIds = ['Feb 6, 2023','Dec 18,2023'];
+  // const toggleableLayerIds = ['Feb 6, 2023','Dec 18,2023'];
+  const toggleableLayerIds = ['Dec 18,2023'];
+
 
   // Set up the corresponding toggle button for each layer.
   for (const id of toggleableLayerIds) {
